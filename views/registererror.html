@@ -33,6 +33,21 @@
     <link rel='stylesheet' id='thickbox-css'  href='js/thickbox/thickbox.css' type='text/css' media='all' />
 
     <script type='text/javascript' src='js/jquery/jquery.js'></script>
+
+    <script type="text/javascript">
+        function chkPassword() {
+            var myPass = document.getElementById("password");
+
+            var pos = myPass.value.search(/^(?=.*\d)(?=.*[$@$!%*#?&]).{8,}$/);
+            if (pos != 0) {
+              alert("The password must include 8 characters at least including a digit and a special character.");
+              myPass.focus();
+              myPass.select();
+              return false;
+            } else
+              return true;
+          }
+    </script>
 </head>
 <!-- END HEAD -->
 

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<!-- START HEAD -->
+<head>
+    <meta charset="UTF-8" />
+
+    <title>Portfolios | only for creative minds.</title>
+
+    <!-- RESET STYLESHEET -->
+    <link rel="stylesheet" type="text/css" media="all" href="/css/reset.css" />
+    <!-- BOOTSTRAP STYLESHEET -->
+    <link rel="stylesheet" type="text/css" media="all" href="/css/bootstrap.css" />
+    <!-- MAIN THEME STYLESHEET -->
+    <link rel="stylesheet" type="text/css" media="all" href="/style.css" />
+
+    <link rel='stylesheet' id='custom-css'  href='/css/custom.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='google-fonts-css'  href='http://fonts.googleapis.com/css?family=Oswald%7CDroid+Sans%7CPlayfair+Display%7COpen+Sans+Condensed:300,400,800%3A300%7CRokkitt%7CShadows+Into+Light%7CMaven+Pro:400,700%7CAbel%7CMontez' type='text/css' media='all' />
+    <link rel='stylesheet' id='responsive-css'  href='/css/responsive.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='tipsy-css'  href='/css/tipsy.css' type='text/css' media='all' />
+
+    <link rel='stylesheet' id='fonts-css'  href='/css/font-awesome.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='slide-details-css'  href='/pinterest/css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='shortcode-css'  href='/css/shortcodes.css' type='text/css' media='all' />
+
+    <link rel='stylesheet' id='colorbox-css'  href='/css/colorbox.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='custom-button-mfast-3-css'  href='/css/buttons/mfast-3.css' type='text/css' media='all' />
+
+    <!-- [favicon] begin -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <!-- [favicon] end -->
+
+    <link rel='stylesheet' id='thickbox-css'  href='/js/thickbox/thickbox.css' type='text/css' media='all' />
+
+    <script type='text/javascript' src='/js/jquery/jquery.js'></script>
+</head>
+<!-- END HEAD -->
+
+<!-- START BODY -->
+<body class="home page no_js responsive stretched">
+
+<!-- START BG SHADOW -->
+<div class="bg-shadow">
+
+<!-- START WRAPPER -->
+<div id="wrapper" class="container group">
+<!-- START TOP BAR -->
+
+<!-- START HEADER -->
+<div id="header" class="group">
+    <div class="group container">
+        <div class="row">
+            <div class="span12">
+                <div class="row">
+                    <div id="logo" class="span4 group">
+                        <h4>EDIT IMAGE</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="border-header"></div>
+</div>
+
+<div id="primary" class="sidebar-no">
+<div class="container group">
+<div class="row">
+
+<!-- START CONTENT -->
+<div class="span12 content group">
+
+<div class="page type-page status-publish hentry group">
+
+<div class="row">
+  <form class="form" method="POST" enctype="multipart/form-data" action="/updatedImg/?id=<%= id %>">
+      <div class="form-group">
+          <label for="InputLink">ScreenShots</label>
+          <input name = "image" type="file" class="form-control" id="InputLink" />
+      </div>
+      <br>
+      <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+</div>
+<div id="comments"></div>
+</div>
+
+</div>
+</div>
+</div>
+<!-- END PRIMARY -->
+
+
+<div id="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="left span6">
+            </div>
+            <div class="right span6">
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

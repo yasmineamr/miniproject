@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<!-- START HEAD -->
+<head>
+    <meta charset="UTF-8" />
+
+    <title>Portfolios | only for creative minds.</title>
+
+    <!-- RESET STYLESHEET -->
+    <link rel="stylesheet" type="text/css" media="all" href="/css/reset.css" />
+    <!-- BOOTSTRAP STYLESHEET -->
+    <link rel="stylesheet" type="text/css" media="all" href="/css/bootstrap.css" />
+    <!-- MAIN THEME STYLESHEET -->
+    <link rel="stylesheet" type="text/css" media="all" href="/style.css" />
+
+    <link rel='stylesheet' id='custom-css'  href='/css/custom.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='google-fonts-css'  href='http://fonts.googleapis.com/css?family=Oswald%7CDroid+Sans%7CPlayfair+Display%7COpen+Sans+Condensed:300,400,800%3A300%7CRokkitt%7CShadows+Into+Light%7CMaven+Pro:400,700%7CAbel%7CMontez' type='text/css' media='all' />
+    <link rel='stylesheet' id='responsive-css'  href='/css/responsive.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='tipsy-css'  href='/css/tipsy.css' type='text/css' media='all' />
+
+    <link rel='stylesheet' id='fonts-css'  href='/css/font-awesome.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='slide-details-css'  href='/pinterest/css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='shortcode-css'  href='/css/shortcodes.css' type='text/css' media='all' />
+
+    <link rel='stylesheet' id='colorbox-css'  href='/css/colorbox.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='custom-button-mfast-3-css'  href='/css/buttons/mfast-3.css' type='text/css' media='all' />
+
+    <!-- [favicon] begin -->
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /> -->
+    <!-- <link rel="icon" type="image/x-icon" href="favicon.ico" /> -->
+    <!-- [favicon] end -->
+
+    <link rel='stylesheet' id='thickbox-css'  href='/js/thickbox/thickbox.css' type='text/css' media='all' />
+
+    <script type='text/javascript' src='/js/jquery/jquery.js'></script>
+</head>
+<!-- END HEAD -->
+
+<!-- START BODY -->
+<body class="home page no_js responsive stretched">
+
+<!-- START BG SHADOW -->
+<div class="bg-shadow">
+
+<!-- START WRAPPER -->
+<div id="wrapper" class="container group">
+<!-- START TOP BAR -->
+
+<!-- START HEADER -->
+<div id="header" class="group">
+    <div class="group container">
+        <div class="row">
+            <div class="span12">
+
+                <div class="row">
+                    <div id="logo" class="span4 group">
+                        <p style="font-weight: bold;">PORTFOLIOS</p>
+                        <p id="tagline" style="position:absolute; top:38px; left:140px;">only for creative minds.</p>
+
+                        <p style="font-weight: bold;" style="position:absolute;top:100px; left:53px;">Welcome, <%= student.username %></p>
+                    </div>
+
+                    <div id="menu" class="span8 group">
+                        <!-- START MAIN NAVIGATION -->
+                        <div class="menu">
+                            <ul id="nav" class="sf-menu">
+
+                                <% if(myportfolios.length== 0) { %>
+                                <li>
+                                    <a href="/create">
+                                        Create Portfolio
+                                    </a>
+                                </li>
+                                <% } else { %>
+                                  <li>
+                                      <a href="/myprofile">
+                                          Profile
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a href="/addwork">
+                                          Add Work to my Portfolio
+                                      </a>
+                                  </li>
+                                  <%  } %>
+                                  <li>
+                                      <a href="/logout">
+                                          Log Out
+                                      </a>
+                                  </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="border-header"></div>
+</div>
+
+<div id="primary" class="sidebar-no">
+<div class="container group">
+<div class="row">
+
+<!-- START CONTENT -->
+<div class="span12 content group">
+
+<div class="page type-page status-publish hentry group">
+
+<div class="row">
+            <% if(portfolios.length==0) {%>
+              <h3>No Portfolios</h3>
+            <% } else { %>
+    <ul id="portfolio" class="pinterest pinterest thumbnails">
+    <% for(var i=0; i<portfolios.length; i++) {%>
+    <li  class="work span3">
+        <div class="thumbnail">
+
+            <div class="picture_overlay">
+                <img width="260" height="246" src="/uploads/<%= portfolios[i].profilePic %>" class="attachment-thumb_portfolio_pinterest" alt="003" />
+            </div>
+
+
+            <h4><%= portfolios[i].name %>
+            </h4>
+
+            <p><span class="meta-label" style="font-weight: bold;">Description:</span><%= portfolios[i].description %></p>
+            <p style="font-weight: bold;">Projects:</p>
+            <div class="work-skillsdate">
+                <% var size = portfolios[i].works.length;%>
+                <% if(portfolios[i].works.length > 2) { %>
+                <%    size = 2; %>
+                <% } %>
+                <%for(var j = 0, k = 0; j < projects.length; j++) { %>
+                 <% if(projects[j].student.equals(portfolios[i].student) && k < size) { %>
+                <p>
+                <span class="meta-label" style="font-weight: bold;">Title:</span> <%= projects[j].title %>
+                </p>
+                <% k++; %>
+                <% } %>
+                <% } %>
+            </div>
+            <a href="/detailedPortfolioP/?id=<%= portfolios[i].student %>"> View Portfolio</a>
+        </div>
+    </li>
+
+
+  <% } %>
+  <% } %>
+</ul>
+
+<div  class="general-pagination group">
+    <% if (pageCount > 1) { %>
+	        <!-- <ul> -->
+	            <% if (currentPage > 1) { %>
+	                <a href="/redirect/?page=1">&laquo;</a>
+	            <% } %>
+	            <% var i = 1;
+	            if (currentPage > 5) {
+	                i = +currentPage - 4;
+	            } %>
+	            <% if (i !== 1) { %>
+	                <a class="disabled" href="#">...</a>
+	            <% } %>
+	            <% for (i; i<=pageCount; i++) { %>
+	                <% if (currentPage == i) { %>
+	                    <span><%= i %> <span class="sr-only">(current)</span></span>
+	                <% } else { %>
+	                    <a href="/redirect/?page=<%= i %>"><%= i %></a>
+	                <% } %>
+	                <% if (i == (+currentPage + 4)) { %>
+	                    <a class="disabled" href="#">...</a>
+	                <% break; } %>
+	            <% } %>
+	            <% if (currentPage != pageCount) { %>
+	                <a href="/redirect/?page=<%= pageCount %>">&raquo;</a>
+	            <% } %>
+	        <!-- </ul> -->
+	    <% } %>
+    </div>
+<!-- <div class='general-pagination group'>
+    <a href='home-ii.html' class='selected' >1</a>
+    <a href='#' >2</a>
+    <a href='#'>&rsaquo;</a>
+</div> -->
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function($){
+        var container = $('#portfolio');
+        container.imagesLoaded( function(){
+            container.masonry({
+                itemSelector: '.span3'
+            });
+        });
+
+        $(window).resize(function(){
+            $('#portfolio').masonry({
+                itemSelector: '.span3'
+            });
+        })
+    });
+</script>
+
+</div>
+<div id="comments"></div>
+</div>
+
+</div>
+</div>
+</div>
+<!-- END PRIMARY -->
+
+
+<div id="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="left span6">
+            </div>
+            <div class="right span6">
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+</div>
+
+<script type='text/javascript' src='/js/jquery/jquery.masonry.min.js'></script>
+
+</body>
+</html>

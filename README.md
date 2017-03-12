@@ -1,6 +1,8 @@
 # miniproject
 SE mini project
 
+http://54.191.234.133:8080
+
 BONUS:
 
 - The password must include 8 characters at least including a digit and a special character.
